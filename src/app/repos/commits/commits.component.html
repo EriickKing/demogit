@@ -1,0 +1,12 @@
+<section class="wrapp__commit" *ngIf="dataCommit">
+  <h1 class="title"><i class="fas fa-history"></i>Commits <p>{{dataCommit?.length}}</p>
+  </h1>
+  <div class="wrapp__commit-box" *ngFor="let commit of dataCommit">
+    <a (click)="onNavigate(commit.html_url)">{{commit.sha}}</a>
+    <p><span>Message:</span>{{commit.commit.message}}</p>
+    <div>
+      <p><span>Author:</span>{{commit.author.login}}</p>
+      <p class="date">{{commit.commit.author.date | date:'short'}}</p>
+    </div>
+  </div>
+</section>

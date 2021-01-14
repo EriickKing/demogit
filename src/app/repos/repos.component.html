@@ -1,0 +1,13 @@
+<div class="wrapp_repos" *ngIf="dataRepos">
+  <h1 class="title"><i class="fas fa-bookmark"></i>Repositories <p>{{dataRepos?.length}}</p>
+  </h1>
+  <ul>
+    <li *ngFor="let repo of dataRepos">
+      <a (click)="getCommit(repo.url, repo.name)" [ngClass]="{full: nameRepo == repo.name}">
+        <h1>{{repo.name}}</h1>
+        <h2>{{repo.language}}</h2>
+      </a>
+    </li>
+  </ul>
+</div>
+<app-commits [url_commits]="commitUrl"></app-commits>
